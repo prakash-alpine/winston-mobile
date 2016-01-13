@@ -1,0 +1,54 @@
+
+
+<ion-content class="has-header">
+  <md-tabs md-dynamic-height md-border-bottom md-center-tabs  md-swipe-content="true" layout-fill>
+    <md-tab ui-sref="dashboard.tab-1">
+      <md-tab-label>
+        <md-icon md-svg-icon="img/icons/mail.svg"></md-icon>
+      </md-tab-label>
+      <md-tab-body >
+        <ion-nav-view name="tab1-content"></ion-nav-view>
+      </md-tab-body>
+    </md-tab>
+    <md-tab  ui-sref="tab.chats">
+      <md-tab-label>
+        <md-icon md-svg-icon="img/icons/message.svg"></md-icon>
+      </md-tab-label>
+      <md-tab-body>
+        <md-content class="layout-padding">
+          <div ng-include src="'/templates/dashboard/html/tab_2.html'"></div>
+        </md-content>
+      </md-tab-body>
+    </md-tab>
+    <md-tab ui-sref="tab.account">
+      <md-tab-label>
+        <md-icon md-svg-icon="img/icons/twitter.svg"></md-icon>
+      </md-tab-label>
+      <md-tab-body >
+        <md-content class="layout-padding">
+          <div ng-include src="'/templates/dashboard/html/tab_3.html'"></div>
+        </md-content>
+      </md-tab-body>
+    </md-tab>
+    <md-tab>
+      <md-tab-label>
+        <md-icon md-svg-icon="img/icons/twitter.svg"></md-icon>
+      </md-tab-label>
+      <md-tab-body >
+        <md-content class="layout-padding">
+          <div ng-include src="'/templates/dashboard/html/tab_3.html'"></div>
+        </md-content>
+      </md-tab-body>
+    </md-tab>
+    <md-tab>
+      <md-tab-label>
+        <md-icon md-svg-icon="img/icons/twitter.svg"></md-icon>
+      </md-tab-label>
+      <md-tab-body >
+        <md-content class="layout-padding">
+          <div ng-include src="'/templates/dashboard/html/tab_3.html'"></div>
+        </md-content>
+      </md-tab-body>
+    </md-tab>
+  </md-tabs>
+</ion-content>

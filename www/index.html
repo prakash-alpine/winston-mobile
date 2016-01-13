@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+
+    <!-- Font reference section -->
+    <link href="lib/robotodraft/robotodraft.css">
+    <!-- end Font reference section -->
+
+    <!-- compiled css output -->
+    <link href="css/ionic.app.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link rel="stylesheet prefetch" href="lib/angular-material/angular-material.css">
+    <link rel="stylesheet" href="lib/font-awesome-4.4.0/css/font-awesome.css">
+
+    <!-- ionic/angularjs js -->
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+    <script src="lib/ionic-platform-web-client/dist/ionic.io.bundle.min.js"></script>
+    <script src="lib/angular-aria/angular-aria.js"></script>
+    <script src="lib/angular-material/angular-material.js"></script>
+    <script src="lib/angular-messages/angular-messages.js"></script>
+    <script src="lib/angular-input-masks/angular-input-masks-standalone.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.8/angular-resource.js"></script>
+
+    <!-- cordova script (this will be a 404 during development) -->
+    <!-- Cordova is bootstrapped by ionic-platform-web-client, uncomment this if you remove ionic-platform-web-client... -->
+    <!-- <script src="cordova.js"></script> -->
+
+    <!-- your app's js -->
+    <script src="js/app.js"></script>
+
+    <!-- Controllers -->
+    <script src="js/controllers.js"></script>
+    <script src="templates/authentication/js/loginCtrl.js"></script>
+    <script src="templates/authentication/js/signupCtrl.js"></script>
+    <script src="templates/authentication/js/verifyPhoneCtrl.js"></script>
+    <script src="templates/authentication/js/updatePasswordCtrl.js"></script>
+    <script src="templates/dashboard/js/dashboardCtrl.js"></script>
+    <script src="templates/welcome/js/welcomeCtrl.js"></script>
+    <script src="js/shared/controllers.js"></script>
+    <script src="js/shared/directives.js"></script>
+    <script src="js/shared/filters.js"></script>
+    <script src="templates/material-user-interface/default-user-interface/js/defaultUserInterfaceCtrl.js"></script>
+    <script src="templates/material-user-interface/dashboard/js/mdUiCtrl.js"></script>
+    <script src="templates/catalog/js/catalogCtrl.js"></script>
+    <script src="templates/map-and-location/ios-map-connect/js/iosMapConnectCtrl.js"></script>
+
+
+
+
+    <!-- Services -->
+    <script src="js/services.js"></script>
+  </head>
+  <body ng-app="starter">
+    <!--
+      The nav bar that will be updated as we navigate between views.
+    -->
+    <!--
+    <ion-nav-bar class="bar-royal">
+      <ion-nav-back-button>
+      </ion-nav-back-button>
+    </ion-nav-bar>
+    -->
+    <!--
+      The views will be rendered in the <ion-nav-view> directive below
+      Templates are in the /templates folder (but you could also
+      have templates inline in this html file if you'd like).
+    -->
+    <ion-nav-view name="main-content"></ion-nav-view>
+  </body>
+
+  <!-- Angular custom template section-->
+
+  <!--Share template confirm-dialog section-->
+  <script type="text/ng-template" id="confirm-dialog.html">
+    <md-dialog aria-label="confirm-dialog">
+      <form>
+        <md-dialog-content>
+          <div>
+            <h2 class="md-title">{{displayOption.title}}</h2>
+
+            <p>{{displayOption.content}}</p>
+          </div>
+        </md-dialog-content>
+        <div class="md-actions" layout="row">
+          <a class="md-primary-color dialog-action-btn" ng-click="cancel()">
+            {{displayOption.cancel}}
+          </a>
+          <a class="md-primary-color dialog-action-btn" ng-click="ok()">
+            {{displayOption.ok}}
+          </a>
+        </div>
+      </form>
+    </md-dialog>
+  </script> <!-- end share template confirm-dialog section-->
+
+  <!-- Share template toast section-->
+  <script type="text/ng-template" id="toast.html">
+    <md-toast class="toast-form">
+      <span flex>{{displayOption.title}}</span>
+    </md-toast>
+  </script><!-- end share template toast section-->
+
+</html>

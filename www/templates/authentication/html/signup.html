@@ -1,0 +1,76 @@
+<!--View Information-->
+<!--View name : Fake Login-->
+<!--State name : app.fakeLogin-->
+<!--URL : #app/fakeLogin-->
+
+<ion-nav-view title="Sign Up">
+  <!--left button on navigation bar-->
+  <ion-nav-bar class="bar-positive">
+    <ion-nav-buttons side="left">
+      <a ng-click="$ionicGoBack()" class="button back-button buttons button-clear header-item nav-back-btn">
+        <i class="ion-android-arrow-back"></i>
+      </a>
+    </ion-nav-buttons><!--end left button on navigation bar-->
+    <ion-nav-title>Sign Up</ion-nav-title>
+  </ion-nav-bar>
+  <!--login content section-->
+
+
+  <md-content layout-padding id="winston-signup" class="bg-white">
+      <form name="userForm">
+        <div>
+          <img class="svg_logo" src="img/winston_logo.svg" style="width:200px;"/>
+          <md-subheader style="color:forestgreen">PARENTING.SIMPLIFIED.</md-subheader>
+        </div>
+        <div>
+        <md-input-container  class="md-block md-no-float">
+          <label>Firstname</label>
+          <input name="firstName" ng-model="data.firstname" required/>
+          <div ng-messages="userForm.firstName.$error">
+            <div ng-message="required">
+              First name is required.
+            </div>
+          </div>
+        </md-input-container>
+          <md-input-container  class="md-block md-no-float">
+            <label>Lastname</label>
+            <input name="lastName" ng-model="data.lastname" required/>
+            <div ng-messages="userForm.lastName.$error">
+              <div ng-message="required">
+                Last name is required.
+              </div>
+            </div>
+          </md-input-container>
+          <md-input-container  class="md-block md-no-float">
+            <label>Email</label>
+            <input type="email" name="email" ng-model="data.email" required/>
+            <div ng-messages="userForm.email.$error">
+              <div ng-message="required">
+                Email is required.
+              </div>
+              <div ng-message="email">
+                You did not enter your email address correctly.
+              </div>
+            </div>
+          </md-input-container>
+          <md-input-container  class="md-block md-no-float">
+            <label>Mobile Phone</label>
+            <input name="mobilePhone" type='text' phone-input ng-model="data.mobile_phone" required/>
+            <div ng-messages="userForm.mobilePhone.$error">
+              <div ng-message="required">Mobile phone is required</div>
+            </div>
+          </md-input-container>
+        <div class="padding">
+          <button type='submit' ng-disabled="userForm.$invalid || userForm.$pending" class="button button-block  icon-right ion-chevron-right button-calm" ng-click="signup()"><b>Step 2</b></button>
+        </div>
+      </form>
+      <md-content class="bg-white">
+        <p>Already a Member?</p>
+        <div class="padding">
+          <button class="button button-block button-outline button-balanced" ng-click="login()">Login</button>
+        </div>
+      </md-content>
+    </div>
+  </md-content>
+
+</ion-nav-view>

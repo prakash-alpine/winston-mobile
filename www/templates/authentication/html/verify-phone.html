@@ -1,0 +1,74 @@
+<!--View Information-->
+<!--View name : Fake Login-->
+<!--State name : app.fakeLogin-->
+<!--URL : #app/fakeLogin-->
+
+<ion-view title="Sign Up">
+  <!--left button on navigation bar-->
+  <ion-nav-bar class="bar-positive">
+    <ion-nav-buttons side="left">
+      <a ng-click="$ionicGoBack()" class="button back-button buttons button-clear header-item nav-back-btn">
+        <!-- <i class="ion-android-arrow-back"></i> -->
+      </a>
+    </ion-nav-buttons><!--end left button on navigation bar-->
+    <ion-nav-title>Sign Up</ion-nav-title>
+  </ion-nav-bar>
+
+  <!--login content section-->
+
+
+  <md-content layout-padding id="winston-signup" class="bg-white">
+      <form name="userForm">
+        <div>
+          <img class="svg_logo" src="img/winston_logo.svg" style="width:200px;"/>
+          <md-subheader style="color:forestgreen">PARENTING.SIMPLIFIED.</md-subheader>
+        </div>
+        <p>We just sent you a text message with a verification code. Please enter the four digit code below.</p>
+        <div>
+        <md-input-container  class="md-block md-no-float">
+          <label>Verification Code</label>
+          <input name="mobile_verification_pin" type="number" ng-model="data.mobile_verification_pin" ng-minlength="4" ng-maxlength="4" ui-number-mask="4" min="0000" max="9999" required/>
+          <div ng-messages="userForm.mobile_verification_pin.$error">
+            <div ng-message="required">Enter verification code</div>
+            <div ng-message="minlength">Must be 4 characters long</div>
+            <div ng-message="maxlength">Must be 4 characters long</div>
+          </div>
+        </md-input-container>
+        <div class="padding">
+          <button type='submit' ng-disabled="userForm.$invalid || userForm.$pending" class="button button-block icon-right ion-chevron-right button-calm" ng-click="verify_phone()"><b>Step 3</b></button>
+        </div>
+      </form>
+    </div>
+  </md-content>
+
+
+
+
+  <!--
+  <ion-content id="social-login" class="bg-white">
+      <div>
+        <img src="img/winston_logo.png" style="width:200px;"/>
+      </div>
+      <div class="sub-header">Sign in to application</div>
+
+      <form class="fakeLogin-form" style="min-height: 300px;">
+        <ion-content scroll="false" class="padding" id="contract-list-content">
+          <div class="list">
+            <label class="item item-input item-floating-label">
+              <span class="input-label">Username</span>
+              <input type="text" placeholder="Username" ng-model="data.username">
+            </label>
+            <label class="item item-input item-floating-label">
+              <span class="input-label">Password</span>
+              <input type="password" placeholder="Password" ng-model="data.password">
+            </label>
+          </div>
+
+          <div class="padding">
+            <button class="button button-block button-calm" ng-click="login()">Login</button>
+          </div>
+        </ion-content>
+      </form>
+  </ion-content>
+  -->
+</ion-view>

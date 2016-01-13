@@ -1,0 +1,51 @@
+<!--View Information-->
+<!--View name : Fake Login-->
+<!--State name : app.fakeLogin-->
+<!--URL : #app/fakeLogin-->
+
+<ion-view title="Sign In">
+
+
+  <md-content layout-padding id="winston-signup" class="bg-white">
+      <form name="loginForm">
+        <div>
+          <img class="svg_logo" src="img/winston_logo.svg" style="width:200px;"/>
+          <md-subheader style="color:forestgreen">PARENTING.SIMPLIFIED.</md-subheader>
+        </div>
+        <div>
+          <md-input-container  class="md-block md-no-float">
+            <label>Email</label>
+            <input type="email" name="email" ng-model="data.username" required/>
+            <div ng-messages="loginForm.email.$error">
+              <div ng-message="required">
+                Email is required.
+              </div>
+              <div ng-message="email">
+                Invalid email address.
+              </div>
+            </div>
+          </md-input-container>
+          <md-input-container md-no-float class="md-block md-no-float">
+            <label>Password</label>
+            <input type="password" name="password" ng-model="data.password" required/>
+            <div ng-messages="loginForm.password.$error">
+              <div ng-message="required">
+                Password is required.
+              </div>
+            </div>
+          </md-input-container>
+          <div class="padding">
+            <button type="submit" ng-disabled="loginForm.$invalid || loginForm.$pending" class="button button-block button-calm" ng-click="login()">Login</button>
+          </div>
+        </div>
+      </form>
+    <md-content class="bg-white">
+        <p>Not a Member?</p>
+        <div class="padding">
+          <button class="button button-block button-outline button-balanced" ng-click="signup()">Sign Up</button>
+        </div>
+    </md-content>
+  </md-content>
+
+
+</ion-view>
