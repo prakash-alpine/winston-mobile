@@ -43,7 +43,7 @@ window.globalVariable = {
 };// End Global variable
 
 
-angular.module('starter', ['ionic','ionic.service.core', 'starter.controllers', 'starter.services', 'ngMaterial', 'ngMessages', 'ngResource'])
+angular.module('starter', ['ionic','ionic.service.core', 'starter.controllers', 'starter.services', 'starter.directives', 'ngMaterial', 'ngMessages', 'ngResource'])
 
 .run(function($ionicPlatform, $rootScope, $state) {
   $ionicPlatform.ready(function() {
@@ -61,7 +61,12 @@ angular.module('starter', ['ionic','ionic.service.core', 'starter.controllers', 
   });
 })
 
-.config(function($stateProvider, $urlRouterProvider, $httpProvider) {
+.config(function($stateProvider, $urlRouterProvider, $httpProvider, $mdGestureProvider) {
+
+    // Following line is to prevent a bug in angular-material that results in double click events for every click on button, href, etc.
+    // See https://github.com/angular/material/issues/1406
+
+    $mdGestureProvider.skipClickHijack();
 
   // Ionic uses AngularUI Router which uses the concept of states
   // Learn more here: https://github.com/angular-ui/ui-router

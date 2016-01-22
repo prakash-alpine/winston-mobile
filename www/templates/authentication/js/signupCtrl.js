@@ -1,11 +1,11 @@
-appControllers.controller('signupCtrl', function($scope, $state, RegisterUser, $ionicPopup, $rootScope) {
+appControllers.controller('signupCtrl', function($scope, $state, RegisterUser, $ionicPopup,  $timeout, $rootScope) {
   $scope.data = {};
 
   $scope.login = function() {
     $state.go('app.login');
   };
 
-  $scope.signup = function() {
+  $scope.signup =  function() {
 
     request_data = {};
     request_data['mobile_registration'] = true;
