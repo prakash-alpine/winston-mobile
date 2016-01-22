@@ -35,7 +35,7 @@ window.globalVariable = {
   },
   config: {
     server_url: "http://winston-mobile.leanrails.com"
-    //    server_url: "http://localhost:3006"
+    //server_url: "http://localhost:3006"
 
 
   },

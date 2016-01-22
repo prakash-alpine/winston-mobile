@@ -22,8 +22,7 @@ appControllers.controller('loginCtrl', function($scope, $state, UserSession, $io
 
   $scope.signup = function() {
     console.log("going to sign up");
-//    $state.go("app.signup");
-    $state.go("app.dashboard");
+    $state.go("app.signup");
 
   };
 

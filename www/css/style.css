@@ -626,7 +626,9 @@ md-sidenav {
 #winston-signup {
   text-align: center;
   background-color: #f6f6f6;
+  margin-top: 10%;
 }
+
 #winston-signup.bg-white {
   background-color: white;
 }
