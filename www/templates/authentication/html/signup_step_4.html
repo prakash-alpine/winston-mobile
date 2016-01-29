@@ -1,0 +1,85 @@
+<ion-view view-title="Signup" align-title="left">
+  <!--left button on navigation bar-->
+  <!--  <ion-content  class="no-header" style="background: url(img/winston_lady.jpg) center; background-size: cover;"> -->
+  <ion-content class="no-header" style="background-color: #fafafa; background-size: cover;">
+    <div class="hero no-header flat">
+      <div class="content animate-fade-slide-in-right" style="top:20px !important;">
+        <!--        <div class="app-icon"></div> -->
+        <div class="row item no-border">
+          <div class="col col-20">
+            <a ui-sref="app.signup-step-3" style="color:#000;top:-8px; padding-left:10px;"
+               class="button button-small button-clear icon-left ion-chevron-left"></a>
+          </div>
+          <div class="col col-60">
+            <img class="svg_logo" src="img/winston_logo.svg" style="width:120px;"/>
+            <md-subheader style="background: transparent; color:royalblue;font-weight: bolder;">Sign Up : Step 4 of 5
+            </md-subheader>
+          </div>
+          <div class="col col-20">
+            <a ui-sref="app.signup-step-5" ng-disabled="userForm.$invalid || $scope.$pending"
+               style="color:#000;top:-10px; padding-left:15px; text-transform:capitalize;" class="button button-clear">Next</a>
+          </div>
+        </div>
+        <div  class="content animate-fade-slide-in-right">
+          <p style="font-size: 16px;color:#000;margin:10px;">
+            Almost done!!<br>Tell me about household.
+          </p>
+        </div>
+        <form name="userForm" class="padding item no-border">
+          <p style="font-size: 16px;color:#000;margin:10px;text-align: left;">
+            Name your household
+          </p>
+          <md-input-container  class="md-block" style="margin-bottom:-15px;margin-top:0px;">
+            <input name="household" type="text" ng-model="data.household" value="{{data.household}}" required/>
+            <div ng-messages="userForm.household.$error">
+              <div ng-message="required">
+                Household is required.
+              </div>
+            </div>
+          </md-input-container>
+          <p style="text-align: left;">
+            Are you a member of a household that<br>is already setup? <a href="#">Join a Household</a>
+          </p>
+          <p style="font-size: 16px;color:#000;margin:10px;text-align: left;">
+            Your role
+          </p>
+          <button class="button button-full button-outline icon icon-small icon-right ion-chevron-right" modal-select="" ng-model="data.role" options="selectables" modal-title="Select a role">
+            {{data.role}}
+            <div class="option">
+              {{option}}
+            </div>
+          </button>
+          <p style="font-size: 16px;color:#000;margin:10px;text-align: left;">
+            Number of Adults
+          </p>
+          <div class="row">
+            <div class="col col-20">
+              <a style="color:#000;font-size:35px;" ng-click="decrementAdults() " class="icon ion-minus-circled"></a>
+            </div>
+            <div class="col col-20">
+              <a ui-sref="app.home" style="color:#000;font-size:35px;text-align:center;position: relative;top:10px;" class="" ng-model="data.adults"><span>{{data.adults}}</span></a>
+            </div>
+            <div class="col col-20">
+              <a style="color:#000;font-size:35px;" ng-click="incrementAdults()" class="icon ion-plus-circled"></a>
+            </div>
+          </div>
+          <p style="font-size: 16px;color:#000;margin:10px;text-align: left;">
+            Number of Children
+          </p>
+          <div class="row">
+            <div class="col col-20">
+              <a style="color:#000;font-size:35px;" ng-click="decrementChildren()" class="icon ion-minus-circled"></a>
+            </div>
+            <div class="col col-20">
+              <a style="color:#000;font-size:35px;text-align:center;position: relative;top:10px;" class="" ng-model="data.adults"><span>{{data.children}}</span></a>
+            </div>
+            <div class="col col-20">
+              <a style="color:#000;font-size:35px;" ng-click="incrementChildren()" class="icon ion-plus-circled"></a>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>
+

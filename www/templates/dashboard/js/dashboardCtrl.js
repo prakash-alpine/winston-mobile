@@ -1,8 +1,34 @@
 // Controller of menu dashboard page.
-appControllers.controller('dashboardCtrl', function ($scope, $mdToast, $timeout, $mdUtil, $mdSidenav, $mdBottomSheet, $log, $ionicHistory, $state) {
+appControllers.controller('dashboardCtrl', function ($scope, $mdToast, $timeout, $mdUtil, $mdSidenav, $mdBottomSheet, $log, $ionicHistory, $state, ionicMaterialInk,ionicMaterialMotion, $ionicNativeTransitions) {
 
   $scope.toggleLeft = buildToggler('left');
   $scope.toggleRight = buildToggler('right');
+
+
+  // Set Header
+  $scope.$parent.showHeader();
+  $scope.$parent.clearFabs();
+  $scope.isExpanded = false;
+  $scope.$parent.setExpanded(false);
+  $scope.$parent.setHeaderFab(false);
+
+  // Set Motion
+  $timeout(function() {
+    ionicMaterialMotion.slideUp({
+      selector: '.slide-up'
+    });
+  }, 300);
+
+  $timeout(function() {
+    ionicMaterialMotion.fadeSlideInRight({
+      startVelocity: 3000
+    });
+  }, 700);
+
+  // Set Ink
+  ionicMaterialInk.displayEffect();
+
+
 
   // buildToggler is for create menu toggle.
   // Parameter :
@@ -58,6 +84,7 @@ appControllers.controller('dashboardCtrl', function ($scope, $mdToast, $timeout,
 
   // For show Grid Bottom Sheet.
   $scope.showGridBottomSheet = function ($event) {
+    console.log("showing bottomsheet from dashboardCtrl");
     $mdBottomSheet.show({
       templateUrl: 'ui-grid-bottom-sheet-template',
       targetEvent: $event,
@@ -70,6 +97,6 @@ appControllers.controller('dashboardCtrl', function ($scope, $mdToast, $timeout,
     $mdBottomSheet.hide();
   } // End of closeListBottomSheet.
 
-  
+
 });// End of controller menu dashboard.
 

@@ -20,15 +20,18 @@ window.globalVariable = {
     wordpressColor: "#0087BE"
   },// End custom color style variable
   startPage: {
-    url: "/app/login",
-    state: "app.login"
+//    url: "/app/login",
+//    state: "app.login"
+    url: "/app/signup-options",
+    state: "app.signup-options"
+
   },
   message: {
     errorMessage: "Technical error please try again later." //Default error message.
   },
   oAuth: {
     dropbox: "your_api_key",//Use for Dropbox API clientID.
-    facebook: "your_api_key",//Use for Facebook API appID.
+    facebook: "204621893222125",//Use for Facebook API appID.
     foursquare: "your_api_key", //Use for Foursquare API clientID.
     instagram: "your_api_key",//Use for Instagram API clientID.
     googlePlus: "your_api_key" //Use for Google API clientID.
@@ -43,7 +46,7 @@ window.globalVariable = {
 };// End Global variable
 
 
-angular.module('starter', ['ionic','ionic.service.core', 'starter.controllers', 'starter.services', 'starter.directives', 'ngMaterial', 'ngMessages', 'ngResource'])
+angular.module('starter', ['ionic','ionic.service.core', 'starter.controllers', 'starter.services', 'starter.directives', 'ngMaterial', 'ngMessages', 'ngResource', 'ngCordova', 'ngCordovaOauth', 'ionic-material', 'ionic-native-transitions', 'ionic-modal-select'])
 
 .run(function($ionicPlatform, $rootScope, $state) {
   $ionicPlatform.ready(function() {
@@ -53,19 +56,42 @@ angular.module('starter', ['ionic','ionic.service.core', 'starter.controllers', 
       cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
       cordova.plugins.Keyboard.disableScroll(true);
 
-    }
+    };
     if (window.StatusBar) {
       // org.apache.cordova.statusbar required
       StatusBar.styleDefault();
-    }
+    };
   });
 })
 
-.config(function($stateProvider, $urlRouterProvider, $httpProvider, $mdGestureProvider) {
+.config(function($stateProvider, $urlRouterProvider, $httpProvider, $mdGestureProvider,  $ionicNativeTransitionsProvider) {
 
-    // Following line is to prevent a bug in angular-material that results in double click events for every click on button, href, etc.
+
+      $ionicNativeTransitionsProvider.setDefaultOptions({
+        enable: true,
+        duration: 400, // in milliseconds (ms), default 400,
+        slowdownfactor: 4, // overlap views (higher number is more) or no overlap (1), default 4
+        iosdelay: 5, // ms to wait for the iOS webview to update before animation kicks in, default -1
+        androiddelay: -1, // same as above but for Android, default -1
+        winphonedelay: -1, // same as above but for Windows Phone, default -1,
+        fixedPixelsTop: 0, // the number of pixels of your fixed header, default 0 (iOS and Android)
+        fixedPixelsBottom: 0, // the number of pixels of your fixed footer (f.i. a tab bar), default 0 (iOS and Android)
+        triggerTransitionEvent: '$ionicView.afterEnter', // internal ionic-native-transitions option
+        backInOppositeDirection: false // Takes over default back transition and state back transition to use the opposite direction transition to go back
+      });
+
+    $ionicNativeTransitionsProvider.setDefaultTransition({
+      type: 'slide',
+      direction: 'left'
+    });
+
+    $ionicNativeTransitionsProvider.setDefaultBackTransition({
+      type: 'slide',
+      direction: 'right'
+    });
+
+    // Following line is to prevent a bug in angular-material that results in two click events for every click on button, href, etc.
     // See https://github.com/angular/material/issues/1406
-
     $mdGestureProvider.skipClickHijack();
 
   // Ionic uses AngularUI Router which uses the concept of states
@@ -76,42 +102,166 @@ angular.module('starter', ['ionic','ionic.service.core', 'starter.controllers', 
 
   // setup an abstract state for the tabs directive
 
-    .state('app', {
-      url: "/app",
+    $stateProvider.state('app', {
+      url: '/app',
       abstract: true,
+      templateUrl: 'templates/home/html/home.html',
+      controller: 'homeCtrl'
+    })
+      //.state('app', {
+      //  url: "/app",
+      //  abstract: true,
+      //  views: {
+      //    'main-content': {
+      //      templateUrl: "templates/welcome/html/welcome.html",
+      //      controller: 'welcomeCtrl'
+      //    }
+      //  }
+      //})
+
+    .state('app.login', {
+      url: '/login',
       views: {
-        'main-content': {
-          templateUrl: "templates/welcome/html/welcome.html",
-          controller: 'welcomeCtrl'
+        'menuContent': {
+          templateUrl: 'templates/authentication/html/login.html',
+          controller: 'loginCtrl'
+        },
+        'fabContent': {
+          template: ''
+        }
+      }
+    })
+
+    .state('app.signup-options', {
+      url: '/signup-options',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/authentication/html/signup_options.html',
+          controller: 'signupOptionsCtrl'
+        },
+        'fabContent': {
+          template: ''
+        }
+      }
+    })
+    .state('app.signup-step-1', {
+      url: '/signup-step-1',
+      nativeTransitions: {
+        "type": "flip",
+        "direction": "up"
+      },
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/authentication/html/signup_step_1.html',
+          controller: 'signupCtrl'
+        },
+        'fabContent': {
+          template: ''
+        }
+      }
+    })
+    .state('app.signup-step-2', {
+      url: '/signup-step-2',
+      nativeTransitions: {
+        "type": "slide",
+        "direction": "left"
+      },
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/authentication/html/signup_step_2.html',
+          controller: 'signupCtrl'
+        },
+        'fabContent': {
+          template: ''
+        }
+      }
+    })
+    .state('app.signup-step-3', {
+      url: '/signup-step-3',
+      nativeTransitions: {
+        "type": "slide",
+        "direction": "left"
+      },
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/authentication/html/signup_step_3.html',
+          controller: 'signupCtrl'
+        },
+        'fabContent': {
+          template: ''
+        }
+      }
+    })
+    .state('app.signup-step-4', {
+      url: '/signup-step-4',
+      nativeTransitions: {
+        "type": "slide",
+        "direction": "left"
+      },
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/authentication/html/signup_step_4.html',
+          controller: 'signupCtrl'
+        },
+        'fabContent': {
+          template: ''
+        }
+      }
+    })
+    .state('app.signup-step-5', {
+      url: '/signup-step-5',
+      nativeTransitions: {
+        "type": "slide",
+        "direction": "left"
+      },
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/authentication/html/signup_step_5.html',
+          controller: 'signupCtrl'
+        },
+        'fabContent': {
+          template: ''
         }
       }
     })
     .state('app.dashboard', {
-      url: "/dashboard",
+      url: '/dashboard',
+      nativeTransitions: {
+        "type": "slide",
+        "direction": "left"
+      },
       views: {
-        'main-content@': {
-          templateUrl: "templates/dashboard/html/dashboard_2.html",
+        'menuContent': {
+          templateUrl: "templates/dashboard/html/dashboard_3.html",
           controller: 'dashboardCtrl'
+        },
+        'fabContent': {
+          template: '<button id="fab-profile" class="button button-fab button-fab-bottom-right button-energized-900"><i class="icon ion-plus"></i></button>',
+          controller: function ($timeout) {
+            /*$timeout(function () {
+             document.getElementById('fab-profile').classList.toggle('on');
+             }, 800);*/
+          }
         }
       }
     })
+      //.state('app.login', {
+      //  url: "/login",
+      //  cache: false,
+      //  onEnter: function() { console.log("enter app.login"); },
+      //  views: {
+      //    'app-content': {
+      //      templateUrl: "templates/authentication/html/login.html",
+      //      controller: 'loginCtrl'
+      //    }
+      //  }
+      //})
     .state('app.dashboard.tab-1', {
       url: "/tab_1",
       views: {
         "tab1-content@app.dashboard": {
           templateUrl: "templates/dashboard/html/tab_1.html",
           controller: 'dashboardCtrl'
-        }
-      }
-    })
-    .state('app.login', {
-      url: "/login",
-      cache: false,
-      onEnter: function() { console.log("enter app.login"); },
-      views: {
-        'app-content': {
-          templateUrl: "templates/authentication/html/login.html",
-          controller: 'loginCtrl'
         }
       }
     })

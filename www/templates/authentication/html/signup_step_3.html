@@ -1,0 +1,47 @@
+<ion-view view-title="Signup" align-title="left">
+  <!--left button on navigation bar-->
+  <!--  <ion-content  class="no-header" style="background: url(img/winston_lady.jpg) center; background-size: cover;"> -->
+  <ion-content class="no-header" style="background-color: #fafafa; background-size: cover;">
+    <div class="hero no-header flat">
+      <div class="content animate-fade-slide-in-right" style="top:20px !important;">
+        <!--        <div class="app-icon"></div> -->
+        <div class="row item no-border">
+          <div class="col col-20">
+            <a ui-sref="app.signup-step-2" style="color:#000;top:-8px; padding-left:10px;"
+               class="button button-small button-clear icon-left ion-chevron-left"></a>
+          </div>
+          <div class="col col-60">
+            <img class="svg_logo" src="img/winston_logo.svg" style="width:120px;"/>
+            <md-subheader style="background: transparent; color:royalblue;font-weight: bolder;">Sign Up : Step 3 of 5
+            </md-subheader>
+          </div>
+          <div class="col col-20">
+            <a ui-sref="app.signup-step-4" ng-disabled="userForm.$invalid || $scope.$pending"
+               style="color:#000;top:-10px; padding-left:15px; text-transform:capitalize;" class="button button-clear">Next</a>
+          </div>
+        </div>
+        <div class="row item no-border">
+          <div class="col col-100">
+            <p style="font-size: 16px;color:#000;margin:10px;">
+              I have sent a text message to<br>your mobile phone number<br>at (617) 538-0995
+            </p>
+            <p style="font-size: 16px;color:#000;margin:10px;">Please enter the four digit<br>confirmation code below</p>
+          </div>
+        </div>
+        <form name="userForm" class="padding item no-border">
+          <div>
+            <md-input-container  class="md-block md-no-float">
+              <label>Confirmation Code</label>
+              <input name="mobile_verification_pin" style="border-bottom: 1px solid #ccc;" type="number" ng-model="data.mobile_verification_pin" ng-minlength="4" ng-maxlength="4" ui-number-mask="4" min="0000" max="9999" required/>
+              <div ng-messages="userForm.mobile_verification_pin.$error">
+                <div ng-message="required">Enter verification code</div>
+                <div ng-message="minlength">Must be 4 characters long</div>
+                <div ng-message="maxlength">Must be 4 characters long</div>
+              </div>
+            </md-input-container>
+          </div>
+        </form>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

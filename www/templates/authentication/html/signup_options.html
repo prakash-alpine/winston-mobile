@@ -1,0 +1,50 @@
+<ion-view view-title="Signup" align-title="left">
+  <!--left button on navigation bar-->
+<!--  <ion-content  class="no-header" style="background: url(img/winston_lady.jpg) center; background-size: cover;"> -->
+  <ion-content  class="no-header app-icon animate-fade-slide-in" ng-class="{expanded:isExpanded}">
+    <div class="hero no-header flat">
+      <div class="content">
+        <!--        <div class="app-icon"></div> -->
+        <div class="row">
+          <div class="col col-10">
+            <a ui-sref="app.home" style="color:#000;top:5px; padding-left:15px;" class="button button-small button-clear icon-left ion-close"></a>
+          </div>
+          <div class="col col-80">
+          </div>
+          <div class="col col-10"></div>
+        </div>
+        <div class="row"></div>
+        <div class="row">
+          <div class="col col-10">
+          </div>
+          <div class="col col-80">
+            <img class="svg_logo" src="img/winston_logo.svg" style="width:200px;"/>
+            <md-subheader style="background: transparent; color:royalblue;font-weight: bolder;">PARENTING.SIMPLIFIED.</md-subheader>
+          </div>
+          <div class="col col-10"></div>
+        </div>
+        <div>
+          <p style="font-size: 16px;color:#000;">Hello<br/>
+            I am Winston. Your new personal assistant.</p>
+          <p style="font-size: 16px;color:#000;">Let us get started.</p>
+        </div>
+      </div>
+    </div>
+    <div class="list">
+      <div class="signup padding">
+        <button ui-sref="app.signup-step-1" class="button button-full  icon-left ion-ios-email-outline button-assertive ink">Sign up with Email</button>
+      </div>
+      <div class="signup padding">
+        <button ui-sref="app.profile" class="button button-full icon-left ion-social-facebook  button-positive  ink">Sign up with Facebook</button>
+      </div>
+      <div class="signup padding">
+        <button ui-sref="app.profile" class="button button-full icon-left ion-social-google button-balanced ink">Sign up with Google</button>
+      </div>
+    </div>
+    <div class="row" style="bottom:10px;">
+      <div class="col col-100">
+        <p style="color:#000;">By signing up you agree to <a href="#">terms of service</a> and <a href="#">privacy policy</a> of Winston Digital LLC.</p>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

@@ -1,0 +1,51 @@
+<ion-view view-title="Signup" align-title="left">
+  <!--left button on navigation bar-->
+  <!--  <ion-content  class="no-header" style="background: url(img/winston_lady.jpg) center; background-size: cover;"> -->
+  <ion-content  class="no-header" style="background-color: #fafafa; background-size: cover;" ng-class="{expanded:isExpanded}">
+    <div class="hero no-header flat">
+      <div class="content animate-fade-slide-in-right" style="top:20px !important;">
+        <!--        <div class="app-icon"></div> -->
+        <div class="row item no-border">
+          <div class="col col-20">
+            <a ui-sref="app.signup-options" style="color:#000;top:-8px; padding-left:10px;" class="button button-small button-clear icon-left ion-chevron-left"></a>
+          </div>
+          <div class="col col-60">
+            <img class="svg_logo" src="img/winston_logo.svg" style="width:120px;"/>
+            <md-subheader style="background: transparent; color:royalblue;font-weight: bolder;">Sign Up : Step 1 of 5</md-subheader>
+          </div>
+          <div class="col col-20">
+            <a ng-click="navigateTo('app.signup-step-2')" sng-disabled="userForm.$invalid || $scope.$pending" style="color:#000;top:-10px; padding-left:15px; text-transform:capitalize;" class="button button-clear">Next</a>
+          </div>
+        </div>
+    <div class="item no-border">
+      <p style="font-size: 16px;color:#000;margin:10px;">
+        First, I'd like to know few things about you.
+        </p>
+      <p style="font-size: 16px;color:#000;margin:10px;">What is your name?</p>
+    </div>
+    <form name="userForm" class="padding item no-border">
+      <div>
+        <md-input-container  class="md-block md-no-float">
+          <label>Firstname</label>
+          <input name="firstName" ng-model="data.firstname" required/>
+          <div ng-messages="userForm.firstName.$error">
+            <div ng-message="required">
+              First name is required.
+            </div>
+          </div>
+        </md-input-container>
+        <md-input-container  class="md-block md-no-float">
+          <label>Lastname</label>
+          <input name="lastName" ng-model="data.lastname" required/>
+          <div ng-messages="userForm.lastName.$error">
+            <div ng-message="required">
+              Last name is required.
+            </div>
+          </div>
+        </md-input-container>
+      </div>
+    </form>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

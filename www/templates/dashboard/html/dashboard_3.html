@@ -1,0 +1,79 @@
+<ion-view view-title="Winston" hide-back-button="true">
+  <ion-content ng-class="{expanded:$scope.isExpanded}">
+    <md-tabs md-dynamic-height md-border-bottom md-center-tabs  md-swipe-content="true" layout-fill>
+      <md-tab>
+        <md-tab-label>
+               <span ui-sref="app.dashboard.tab-1">
+                <md-icon md-svg-icon="img/icons/ic_date_range_black_24px.svg"></md-icon>
+               </span>
+        </md-tab-label>
+        <md-tab-body>
+          <md-content class="layout-padding" style="height:100%">
+            <div ng-include src="'templates/material-user-interface/default-user-interface/html/default-user-interface.html'"></div>
+          </md-content>
+        </md-tab-body>
+      </md-tab>
+      <md-tab  ui-sref="tab.chats">
+        <md-tab-label>
+          <md-icon md-svg-icon="img/icons/ic_home_black_24px.svg"></md-icon>
+        </md-tab-label>
+        <md-tab-body>
+          <md-content class="layout-padding" style="height:100%">
+            <div ng-include src="'templates/material-user-interface/dashboard/html/dashboard.html'"></div>
+          </md-content>
+        </md-tab-body>
+      </md-tab>
+      <md-tab ui-sref="tab.account">
+        <md-tab-label>
+          <md-icon md-svg-icon="img/icons/ic_add_circle_outline_black_24px.svg"></md-icon>
+        </md-tab-label>
+        <md-tab-body >
+          <md-content class="layout-padding" style="height:100%">
+            <div ng-include src="'templates/catalog/html/catalog.html'"></div>
+          </md-content>
+        </md-tab-body>
+      </md-tab>
+      <md-tab>
+        <md-tab-label>
+          <md-icon md-svg-icon="img/icons/ic_alarm_on_black_24px.svg"></md-icon>
+        </md-tab-label>
+        <md-tab-body >
+          <md-content class="layout-padding" style="height:100%">
+            <div ng-include src="'templates/map-and-location/ios-map-connect/html/ios-map-connect.html'"></div>
+          </md-content>
+        </md-tab-body>
+      </md-tab>
+      <md-tab>
+        <md-tab-label>
+          <md-icon md-svg-icon="img/icons/ic_message_black_24px.svg"></md-icon>
+        </md-tab-label>
+        <md-tab-body >
+          <md-content class="layout-padding">
+            <div ng-include src="'templates/dashboard/html/tab_3.html'"></div>
+          </md-content>
+        </md-tab-body>
+      </md-tab>
+    </md-tabs>
+    <h4 class="content padding double-padding-x">Following</h4>
+    <div class="list animate-fade-slide-in-right">
+      <a ui-sref="app.friends" class="item item-avatar item-icon-right">
+        <img src="img/jon-snow.jpg">
+        <h2>Jon Snow</h2>
+        <p>Da illest illegitimate</p>
+        <i class="icon ion-chatbubble muted"></i>
+      </a>
+      <a ui-sref="app.friends" class="item item-avatar item-icon-right">
+        <img src="img/sansa.jpg">
+        <h2>Sansa Stark</h2>
+        <p>&amp; Joffrey <strike>sitting</strike> sat in a tree</p>
+        <i class="icon ion-chatbubble muted"></i>
+      </a>
+      <a ui-sref="app.friends" class="item item-avatar item-icon-right">
+        <img src="img/tyrion.jpg">
+        <h2>Tyrion Lannister</h2>
+        <p>B.A.M.F. imp</p>
+        <i class="icon ion-chatbubble muted"></i>
+      </a>
+    </div>
+  </ion-content>
+</ion-view>

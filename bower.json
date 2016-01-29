@@ -9,6 +9,12 @@
     "angular-material": "~1.0.1",
     "angular-messages": "~1.4.8",
     "angular-input-masks": "~2.1.1",
-    "angular-touch": "~1.4.9"
+    "angular-touch": "~1.4.9",
+    "ngCordova": "~0.1.24-alpha",
+    "ng-cordova-oauth": "~0.2.2",
+    "ionic-material": "~0.4.2",
+    "ion-md-input": "~1.0.4",
+    "ionic-native-transitions": "shprink/ionic-native-transitions#~1.0.0-rc9",
+    "ionic-modal-select": "~1.1.2"
   }
 }
