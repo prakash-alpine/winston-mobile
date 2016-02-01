@@ -1,2 +1,61 @@
-<ion-nav-view name="app-content"></ion-nav-view>
+<!--View Information-->
+<!--View name : Catalog-->
+<!--Controller name : catalogCtrl-->
+<!--Controller path : www/templates/themes/catalog/js/catalogCtrl.js-->
+<!--State name : app.catalog-->
+<!--URL : #app/catalog-->
+
+<ion-view title="Material Shop" ng-controller="catalogCtrl">
+  <ion-content  class="no-header animate-fade-slide-in-right" style="text-align: center;top:30px;background-color: transparent;" ng-class="{expanded:isExpanded}">
+    <div class="row item no-border">
+      <div class="col col-10">
+      </div>
+      <div class="col col-80">
+        <img class="" src="img/winston_logo.svg" style="width:200px;text-align:center;"/>
+        <md-subheader style="background: transparent; color:royalblue;font-weight: bolder;">PARENTING.SIMPLIFIED.</md-subheader>
+      </div>
+      <div class="col col-10"></div>
+    </div>
+  <!--slide catalog section-->
+    <div class="row item no-border padding" style="min-height:300px;">
+      <div class="col col-10"></div>
+      <div class="col col-80">
+         <ion-slide-box id=""  style="max-height:300px;" active-slide="0" does-continue="true" auto-play=true on-slide-changed="slideHasChanged($index)">
+           <ion-slide>
+             <div class="box blue">
+               <img ng-src="{{'img/winston_lady.jpg'}}" height="100%" width="100%"/>
+             </div>
+           </ion-slide>
+           <ion-slide>
+             <div class="box yellow">
+               <img ng-src="{{'img/slide_02.jpg'}}" height="100%"/>
+             </div>
+           </ion-slide>
+           <ion-slide>
+             <div class="box pink">
+               <img ng-src="{{'img/slide_03.jpg'}}" height="100%" width="100%"/>
+             </div>
+           </ion-slide>
+           <ion-slide>
+             <div class="box pink">
+               <img ng-src="{{'img/slide_04.jpg'}}" height="100%" width="100%"/>
+             </div>
+           </ion-slide>
+        <!--end slide section-->
+        </ion-slide-box><!--end slide catalog section-->
+      </div>
+      <div class="col col-10"></div>
+    </div>
+    <div class="item no-border padding">
+      <div class="list">
+        <div class="signup padding">
+          <button ui-sref="app.signup-options" class="button button-full  icon-left ion-at button-assertive ink">Sign up</button>
+        </div>
+        <div class="signup padding">
+          <button ui-sref="app.login" class="button button-full button-royal icon-left ion-log-in ink">Login</button>
+        </div>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>
 

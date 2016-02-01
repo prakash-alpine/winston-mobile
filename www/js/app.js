@@ -22,8 +22,8 @@ window.globalVariable = {
   startPage: {
 //    url: "/app/login",
 //    state: "app.login"
-    url: "/app/signup-options",
-    state: "app.signup-options"
+    url: "/app/welcome",
+    state: "app.welcome"
 
   },
   message: {
@@ -118,12 +118,23 @@ angular.module('starter', ['ionic','ionic.service.core', 'starter.controllers', 
       //    }
       //  }
       //})
-
+      .state('app.welcome', {
+        url: '/welcome',
+        views: {
+          'menuContent': {
+            templateUrl: 'templates/welcome/html/welcome.html',
+            controller: 'welcomeCtrl'
+          },
+          'fabContent': {
+            template: ''
+          }
+        }
+      })
     .state('app.login', {
       url: '/login',
       views: {
         'menuContent': {
-          templateUrl: 'templates/authentication/html/login.html',
+          templateUrl: 'templates/authentication/html/login_2.html',
           controller: 'loginCtrl'
         },
         'fabContent': {
@@ -137,7 +148,7 @@ angular.module('starter', ['ionic','ionic.service.core', 'starter.controllers', 
       views: {
         'menuContent': {
           templateUrl: 'templates/authentication/html/signup_options.html',
-          controller: 'signupOptionsCtrl'
+          controller: 'signupCtrl'
         },
         'fabContent': {
           template: ''

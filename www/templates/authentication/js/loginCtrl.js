@@ -64,7 +64,7 @@ appControllers.controller('loginCtrl', function($scope, $state, UserSession, $io
 
   $scope.facebookLogin = function() {
 
-//    if ($scope.isLoading == false) {
+///    if ($scope.isLoading == false) {
       $scope.isLoading = true;
 
       // Calling $cordovaOauth.facebook for login facebook.

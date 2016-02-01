@@ -3,7 +3,7 @@
   <!--  <ion-content  class="no-header" style="background: url(img/winston_lady.jpg) center; background-size: cover;"> -->
   <ion-content  class="no-header" style="background-color: #fafafa; background-size: cover;" ng-class="{expanded:isExpanded}">
     <div class="hero no-header flat">
-      <div class="content animate-fade-slide-in-right" style="top:20px !important;">
+      <div class="content animate-fade-slide-in-right" style="top:30px !important;">
         <!--        <div class="app-icon"></div> -->
         <div class="row item no-border">
           <div class="col col-20">
@@ -14,7 +14,7 @@
             <md-subheader style="background: transparent; color:royalblue;font-weight: bolder;">Sign Up : Step 1 of 5</md-subheader>
           </div>
           <div class="col col-20">
-            <a ng-click="navigateTo('app.signup-step-2')" sng-disabled="userForm.$invalid || $scope.$pending" style="color:#000;top:-10px; padding-left:15px; text-transform:capitalize;" class="button button-clear">Next</a>
+            <a ng-click="navigateTo('app.signup-step-2')" ng-disabled="userForm.$invalid || $scope.$pending" style="color:#000;top:-10px; padding-left:15px; text-transform:capitalize;" class="button button-clear">Next</a>
           </div>
         </div>
     <div class="item no-border">
